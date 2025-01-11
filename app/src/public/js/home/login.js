@@ -19,6 +19,8 @@ function login() {
             
             "Content-Type" : "application/json" //내가보내는 데이터타입
         },
-        body: JSON.stringify(req)  // 해당데이터를 문자열로 바꿔주는 메서드
+        body: JSON.stringify(req),  // 해당데이터를 문자열로 바꿔주는 메서드
     })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
 }
