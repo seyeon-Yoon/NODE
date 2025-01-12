@@ -1,19 +1,22 @@
 "use strict";
 
 const id = document.querySelector("#id"),
+    name = document.querySelector("#name"),
     password = document.querySelector("#password"),
-    loginBtn = document.querySelector("#button");
+    confirmPassword = document.querySelector("#confirm-password"),
+    registerBtn = document.querySelector("#button");
 
-loginBtn.addEventListener("click", login);
+registerBtn.addEventListener("click", register);
 
-function login() {
+function register() {
     const req = {
         id: id.value,
+        name: name.value,
         password : password.value,
+        confirmPassword : confirmPassword.value,
     };
-    console.log(req);
-    console.log(JSON.stringify(req));
-    fetch("/login", {
+    
+    fetch("/register", {
         method: "POST", //restAPI와 관련되어있음.
         headers: {  //데이터타입을 명시적으로 알려줌
             
@@ -24,12 +27,12 @@ function login() {
         .then((res) => res.json())
         .then((res) => {
             if (res.success) {
-                location.href = '/';
+                location.href = '/login';
             } else {
                 alert(res.msg);
             }
         })
         .catch((err) => {
-            console.error("로그인 중 에러 발생");
+            console.error("회원가입 중 에러 발생");
         });
 }
