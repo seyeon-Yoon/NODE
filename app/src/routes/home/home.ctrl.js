@@ -10,6 +10,9 @@ const output = {
     login: (req, res) => {
         res.render('home/login'); //   /login.ejs를 불러와라
     },
+    register: (req, res) => {
+        res.render("home/register");
+    },
 };
 
 const process = {
@@ -18,6 +21,7 @@ const process = {
         const response = user.login();
         return res.json(response);
     },   
+
 };
 
 module.exports = {  //모듈은 key : value 형태인데 아래와 같이 key만 입력해준다면 자체적으로 value에 key와 동일한 value를 넣어줌
