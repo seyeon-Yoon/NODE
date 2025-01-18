@@ -3,6 +3,9 @@
 // 모듈 및 포트설정
 const express = require('express'); //express import
 const bodyParser = require("body-parser"); 
+const dotenv = require("dotenv");
+dotenv.config(); //config라는 메서드를 통해서 dotenv 모듈이 돌아감.
+
 const app = express(); //express import
 
 //라우팅
