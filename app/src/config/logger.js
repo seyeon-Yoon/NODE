@@ -43,5 +43,9 @@ if (process.env.NODE_ENV !=="production") { //개발중인지 서비스 중인�
     logger.add(opts.console);
 }
 
+logger.stream = {
+    write : (message) => logger.info(message),
+};
+
 
 module.exports= logger;
